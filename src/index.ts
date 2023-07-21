@@ -8,10 +8,9 @@ async function selectFile(e: any) {
   console.log(file);
 
   const buf = await readVideo(file);
-  console.log(buf);
   const bytes = new Uint8Array(buf);
   const res = muxjs.mp4.probe.tracks(bytes);
-  console.log(res);
+  console.table(res);
 }
 
 async function readVideo(file: File): Promise<ArrayBuffer> {
