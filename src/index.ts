@@ -3,19 +3,18 @@ console.log(muxjs);
 
 document.getElementById('file').addEventListener('change', selectFile)
 
-function selectFile(e: any) {
+async function selectFile(e: any) {
   const file = e.target.files[0];
   console.log(file);
 
-  readVideo(file).then(slice => {
-    console.log(slice);
-    const bytes = new Uint8Array(slice);
-    const res = muxjs.mp4.probe.tracks(bytes);
-    console.log(res);
-  })
+  const buf = await readVideo(file);
+  console.log(buf);
+  const bytes = new Uint8Array(buf);
+  const res = muxjs.mp4.probe.tracks(bytes);
+  console.log(res);
 }
 
-function readVideo(file: File): Promise<ArrayBuffer> {
+async function readVideo(file: File): Promise<ArrayBuffer> {
   return new Promise((resolve, reject) => {
     var reader = new FileReader();
 
