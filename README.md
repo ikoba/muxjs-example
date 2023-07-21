@@ -1,15 +1,15 @@
-# 🚀 Welcome to your new awesome project!
+# mux.js Example
 
-This project has been created using **webpack-cli**, you can now run
+Example app using [mux.js](https://github.com/videojs/mux.js)
 
-```
-npm run build
-```
-
-or
+# Installation
 
 ```
-yarn build
+npm install
 ```
 
-to bundle your application
+# Execution
+
+```
+npm run serve
+```
